@@ -4,14 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Chef's Forno Oven Support</title>
+
+  <!-- Load Patrick Hand font -->
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+
   <style>
     body {
-      font-family: "Ink Free", cursive;
+      font-family: 'Patrick Hand', cursive;
       background: url('https://i.postimg.cc/XqGHq7Zx/673dc71d66dd8f8c353b7dff6eff54ac.jpg') no-repeat center center fixed;
       background-size: cover;
       color: #5a341b;
       padding: 20px;
     }
+
     .container {
       max-width: 700px;
       margin: auto;
@@ -21,10 +26,12 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
       position: relative;
     }
+
     h1, h2 {
       text-align: center;
       color: #a04000;
     }
+
     input, select, textarea, button {
       width: 100%;
       padding: 12px;
@@ -32,17 +39,20 @@
       border-radius: 10px;
       border: 1px solid #ccc;
       font-size: 16px;
-      font-family: "Ink Free", cursive;
+      font-family: inherit; /* Use system font for user input */
     }
+
     button {
       background-color: #ff914d;
       color: white;
       cursor: pointer;
       border: none;
     }
+
     button:hover {
       background-color: #e67300;
     }
+
     #popup {
       position: fixed;
       top: 20%;
@@ -56,6 +66,7 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.3);
       z-index: 999;
     }
+
     #popup .close {
       position: absolute;
       top: 8px;
@@ -63,11 +74,13 @@
       cursor: pointer;
       font-size: 18px;
     }
+
     .note {
       font-size: 14px;
       color: #c0392b;
       display: none;
     }
+
     .logo {
       position: absolute;
       top: 10px;
@@ -75,14 +88,17 @@
       width: 120px;
       height: auto;
     }
+
     #loader {
       display: none;
       text-align: center;
       margin: 20px 0;
     }
+
     #loader img {
       width: 120px;
     }
+
     @media (max-width: 600px) {
       .logo {
         width: 90px;
@@ -92,6 +108,7 @@
 </head>
 <body>
   <img src="https://i.postimg.cc/Fz5WfXj4/CHEF-FORNO-LOGO.png" class="logo" alt="Logo" />
+
   <div class="container">
     <h1>Chef's Forno Oven Support</h1>
 
@@ -220,7 +237,7 @@
       if (!id) return alert("Enter a tracking ID.");
       showLoader(true);
 
-      fetch(`${APP_URL}?action=track&trackingId=${id}`)
+      fetch(`${APP_URL}?action=trackRequest&trackingId=${id}`)
         .then(res => res.json())
         .then(data => {
           showLoader(false);
@@ -246,3 +263,4 @@
   </script>
 </body>
 </html>
+
